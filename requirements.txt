@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+textblob
+nltk
+scikit-learn
+requests
+streamlit
