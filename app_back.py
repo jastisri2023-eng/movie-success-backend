@@ -5,7 +5,7 @@ import random
 
 app = FastAPI()
 
-# Allow calls from Streamlit / browser
+# Allow Streamlit Cloud to call this API
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,6 +16,10 @@ app.add_middleware(
 class Review(BaseModel):
     movie: str
     review: str
+
+@app.get("/")
+def home():
+    return {"message": "Backend is running successfully"}
 
 @app.post("/predict")
 def predict_sentiment(data: Review):
